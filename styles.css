@@ -43,10 +43,16 @@ nav a {
 
 
 .container {
+    display: flex;
     max-width: 750px;
     margin: auto;
-    display: flex;
     font-family: 'Segoe UI';
+    flex-direction: column;
+}
+
+.about {
+    display: flex;
+    flex-direction: row;
 }
 
 .profile-container {
@@ -68,4 +74,41 @@ nav a {
 .desc-container {
     padding: 25px;
     font-size: large;
+}
+
+.desc-social-links a {
+    display: inline-block; 
+    padding: 5px 5px; 
+    background-color: #000; 
+    color: #fff; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-family: Arial, sans-serif;
+}
+
+.publications {
+    margin-top: 2rem;
+}
+
+.pub-desc a {
+    text-decoration: none; /* Removes the underline */
+    color: #007bff; /* Sets a blue color */    
+}
+
+.pub-desc a:hover {
+    color: #0162c9;
+}
+
+.paper {
+    display: flex;
+    flex-direction: row;
+}
+
+.pub-preview-image {
+    width: 12.5rem; 
+    height: 12.5rem;
+}
+
+.authors {
+    font-size: 90%;
 }
