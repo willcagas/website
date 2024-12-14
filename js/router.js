@@ -22,14 +22,14 @@ const urlRoutes = {
 		title: "Home | " + urlPageTitle,
 		description: "This is the home page",
 	},
-	"/about": {
-		template: "/pages/about.html",
-		title: "About Us | " + urlPageTitle,
-		description: "This is the about page",
+	"/work": {
+		template: "/pages/work.html",
+		title: "Work | " + urlPageTitle,
+		description: "This is the work page",
 	},
 	"/contact": {
 		template: "/pages/contact.html",
-		title: "Contact Us | " + urlPageTitle,
+		title: "Contact | " + urlPageTitle,
 		description: "This is the contact page",
 	},
 };

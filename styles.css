@@ -1,24 +1,71 @@
-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    color: black;
-    padding: 20px;
+.nav-container {
     display: flex;
-    justify-content: flex-start;
-    z-index: 1000;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10rem;
+    font-family: 'Segoe UI';
+}
+
+.name a {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main-nav a {
+    position: relative;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 0;
+    height: 2px;
+    background-color: #000; 
+    transition: width 0.2s ease; 
+}
+
+.main-nav a:hover::after {
+    width: 100%;
 }
 
 nav a {
     color: black;
     text-decoration: none;
-    padding: 10px 20px;
-    margin: 0 5px;
+    padding: 2.5px 2.5px;
+    margin: 0 15px;
 }
 
-main {
+
+.container {
+    max-width: 750px;
+    margin: auto;
     display: flex;
+    font-family: 'Segoe UI';
+}
+
+.profile-container {
+    display: flex;
+    padding: 25px;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+}
+
+.profile-image {
+    width: 15rem; 
+    height: 15rem;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid #fff;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.desc-container {
+    padding: 25px;
+    font-size: large;
 }
