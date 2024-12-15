@@ -1,5 +1,3 @@
-const urlPageTitle = "JS Single Page Application Router";
-
 // create document click that watches the nav links only
 document.addEventListener("click", (e) => {
 	const { target } = e;
@@ -14,23 +12,19 @@ document.addEventListener("click", (e) => {
 const urlRoutes = {
 	404: {
 		template: "/pages/404.html",
-		title: "404 | " + urlPageTitle,
-		description: "Page not found",
+		title: "404",
 	},
 	"/": {
-		template: "/index.html",
-		title: "Home | " + urlPageTitle,
-		description: "This is the home page",
+		template: "/pages/home.html",
+		title: "Home",
 	},
 	"/work": {
 		template: "/pages/work.html",
-		title: "Work | " + urlPageTitle,
-		description: "This is the work page",
+		title: "Work",
 	},
 	"/contact": {
 		template: "/pages/contact.html",
-		title: "Contact | " + urlPageTitle,
-		description: "This is the contact page",
+		title: "Contact",
 	},
 };
 
@@ -58,10 +52,6 @@ const urlLocationHandler = async () => {
 	document.getElementById("content").innerHTML = html;
 	// set the title of the document to the title of the route
 	document.title = route.title;
-	// set the description of the document to the description of the route
-	document
-		.querySelector('meta[name="description"]')
-		.setAttribute("content", route.description);
 };
 
 // add an event listener to the window that watches for url changes

@@ -92,10 +92,11 @@ nav a {
 
 .pub-desc a {
     text-decoration: none; /* Removes the underline */
-    color: #007bff; /* Sets a blue color */    
+    color: #3293fb; /* Sets a blue color */    
 }
 
 .pub-desc a:hover {
+    
     color: #0162c9;
 }
 
