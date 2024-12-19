@@ -12,19 +12,19 @@ document.addEventListener("click", (e) => {
 const urlRoutes = {
 	404: {
 		template: "/pages/404.html",
-		title: "404",
+		title: "404 | William Cagas",
 	},
 	"/": {
 		template: "/pages/home.html",
-		title: "Home",
+		title: "Home | William Cagas",
 	},
 	"/work": {
 		template: "/pages/work.html",
-		title: "Work",
+		title: "Work | William Cagas",
 	},
 	"/contact": {
 		template: "/pages/contact.html",
-		title: "Contact",
+		title: "Contact | William Cagas",
 	},
 };
 

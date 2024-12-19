@@ -53,6 +53,7 @@ nav a {
 .about {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .profile-container {
@@ -76,33 +77,73 @@ nav a {
     font-size: large;
 }
 
-.desc-social-links a {
-    display: inline-block; 
-    padding: 5px 5px; 
-    background-color: #000; 
-    color: #fff; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    font-family: Arial, sans-serif;
+.desc-social-links {
+    display: flex;
+    gap: 6px;
 }
+
+.desc-social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start; 
+    width: 36px; 
+    height: 36px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden; 
+    white-space: nowrap;
+    transition: width 0.4s ease-in-out;
+}
+
+.desc-social-links a svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    transition: margin-right 0.4s ease-in-out;
+}
+
+.desc-social-links a span {
+    opacity: 0; 
+    margin-left: 9px;
+    transition: opacity 0.4s ease-in-out, margin-left 0.4s ease-in-out;
+}
+
+.desc-social-links a:hover {
+    width: 100px; /* Expand button width */
+}
+
+.desc-social-links a:hover svg {
+    margin-right: 0; /* Reset margin for clean alignment */
+}
+
+.desc-social-links a:hover span {
+    opacity: 1; /* Show text */
+    margin-left: 8px; /* Ensure spacing */
+}
+
+
 
 .publications {
     margin-top: 2rem;
 }
 
-.pub-desc a {
-    text-decoration: none; /* Removes the underline */
-    color: #3293fb; /* Sets a blue color */    
+.projects > div {
+    margin-bottom: 3rem;
 }
 
-.pub-desc a:hover {
-    
+.projects a {
+    text-decoration: none;
+    color: #3293fb; 
+}
+
+.projects a:hover {
+    text-decoration: underline;
     color: #0162c9;
-}
-
-.paper {
-    display: flex;
-    flex-direction: row;
 }
 
 .pub-preview-image {
@@ -112,4 +153,30 @@ nav a {
 
 .authors {
     font-size: 90%;
+}
+
+.publications li:hover {
+    transform: scale(1.01);
+}
+.publications li {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    list-style: none;
+    padding: 20px;
+    border-radius: 10px; 
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.publications li a.main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
