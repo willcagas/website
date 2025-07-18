@@ -5,23 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>William Cagas</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-    <header>
-        <nav class="nav-container">
-            <div class="name">
-                <a href="/">William Cagas</a>
-                
-            </div>
-            <div class="main-nav">
-                <a href="/">Home</a>
-                <a href="/work">Work</a>
-                <a href="/contact">Contact</a>
-            </div>
-        </nav>
-        <div id="content"></div>
-    </header>
 
-    <script src="/js/router.js"></script>
+
+
+
+    <main class="main">
+        <!-- Professional Bio Section -->
+        <section id="home" class="intro">
+            <div class="container">
+                <div class="intro-content">
+                    <div class="intro-header">
+                        <h1 class="intro-name">William Cagas</h1>
+                        <p class="intro-status">Incoming Software Engineering Student @ University of Waterloo</p>
+                    </div>
+                    
+                    <p class="intro-tagline">👋 I'm William, a 17-year-old Hamiltonian passionate about building. I'm currently developing <a href="https://acnecura.io" target="_blank" class="link">AcneCura</a>, an AI-powered app that recommends personalized acne treatments in minutes. After struggling with acne for six years, I'm creating the solution I wish existed—to eradicate acne entirely.</p>
+                    
+                    <div class="intro-feature">
+                        <a href="https://www.thespec.com/news/hamilton-region/2024/01/15/hamilton-student-william-cagas-publishes-ai-research-paper.html" target="_blank" class="link">
+                            The Hamilton Spectator
+                        </a>
+                    </div>
+                    
+
+                    
+                    <div class="intro-social">
+                        <a href="https://www.linkedin.com/in/william-cagas/" target="_blank" class="intro-social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="https://twitter.com/willcagas" target="_blank" class="intro-social-link" aria-label="X (Twitter)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5">
+                                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="https://github.com/willcagas" target="_blank" class="intro-social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="https://instagram.com/willcagas" target="_blank" class="intro-social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="mailto:williamgabriel.cagas@gmail.com" class="intro-social-link" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Work Section -->
+        <section id="work" class="work">
+            <div class="container">
+                <div class="work-grid">
+                    <article class="work-item">
+                        <h3>AcneCura</h3>
+                        <p class="work-role">Founder</p>
+                        <p>
+                            AI-powered app that recommends personalized acne treatments in minutes. Solving the challenge of long dermatologist wait times, unsafe product choices, and the lack of recommended, personalized acne treatment.
+                        </p>
+                        <a href="#" class="work-link">Learn more →</a>
+                    </article>
+
+                    <article class="work-item">
+                        <h3>Medical Imaging Complexity and its Effects on GAN Performance</h3>
+                        <p class="work-role">Research Paper</p>
+                        <p>
+                            Published at ACCV 2024 workshop. Introduced metrics that help generative models improve realism in complex biomedical imaging.
+                        </p>
+                        <a href="https://willcagas.github.io/medgans/" target="_blank" class="work-link">View Paper →</a>
+                    </article>
+
+                    <article class="work-item">
+                        <h3>HammerHacks</h3>
+                        <p class="work-role">Co-Founder</p>
+                        <p>
+                            Hamilton's first high school hackathon. Partnered with McMaster Engineering. Secured $12,000 in sponsorships, backed by the City of Hamilton, Inference Labs, and Hack Club.
+                        </p>
+                        <a href="https://hammerhacks.ca/" target="_blank" class="work-link">Learn more →</a>
+                    </article>
+
+                    <article class="work-item">
+                        <h3>Sword Power Tycoon</h3>
+                        <p class="work-role">Contributor</p>
+                        <p>
+                            18.2M+ plays on Roblox with 35,000+ favorites. Developed sword powers and game mechanics for a project that turned into a viral success.
+                        </p>
+                        <a href="https://www.roblox.com/games/6937615628/Sword-Power-Tycoon" target="_blank" class="work-link">Play game →</a>
+                    </article>
+
+                    <article class="work-item">
+                        <h3>WasteBuster</h3>
+                        <p class="work-role">Developer</p>
+                        <p>
+                            Sustainability app designed to tackle overconsumption through DIYs, local events, and a repurpose marketplace.
+                        </p>
+                        <div class="work-links">
+                            <a href="https://apps.apple.com/ca/app/wastebuster/id6450317120" target="_blank" class="work-link">App Store →</a>
+                            <a href="https://github.com/willcagas/wastebuster" target="_blank" class="work-link">GitHub →</a>
+                        </div>
+                    </article>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <a href="#" class="cta-link">
+                        Want to book a call?
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
