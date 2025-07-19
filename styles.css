@@ -5,8 +5,8 @@
   --bg-secondary: #f8fafc;
   --text-primary: #1e293b;
   --text-secondary: #64748b;
-  --accent-primary: #3b82f6;
-  --accent-secondary: #8b5cf6;
+  --accent-primary: #ff8c00;
+  --accent-secondary: #ffa500;
   --border-color: #e2e8f0;
   --card-bg: #ffffff;
 
@@ -19,6 +19,7 @@
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
 
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -36,14 +37,14 @@
 /* Dark Mode Colors */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --accent-primary: #60a5fa;
-    --accent-secondary: #a78bfa;
-    --border-color: #334155;
-    --card-bg: #1e293b;
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --accent-primary: #ff8c00;
+    --accent-secondary: #ffa500;
+    --border-color: #30363d;
+    --card-bg: #21262d;
   }
 }
 
@@ -97,7 +98,7 @@ body {
 }
 
 .intro-name {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-4xl);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--spacing-xs);
@@ -107,13 +108,11 @@ body {
   font-size: var(--font-size-base);
   color: #2c3e50;
   font-weight: 500;
-  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  background: #ffd54f;
   padding: 4px 12px;
   border-radius: 8px;
   display: inline-block;
 }
-
-
 
 .intro-tagline {
   font-size: var(--font-size-base);
@@ -269,184 +268,67 @@ section {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* AcneCura - Lighter Pastel Orange gradient */
-.work-item:nth-child(1) {
-  background: linear-gradient(135deg, #ffe8cc 0%, #ffd699 100%);
-  color: #2c3e50;
-  border: none;
+/* Work Items - Clean Modern Design */
+.work-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
 }
 
-.work-item:nth-child(1) h3,
-.work-item:nth-child(1) .work-role,
-.work-item:nth-child(1) p {
-  color: #2c3e50;
+.work-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #ff8c00;
+  transition: width var(--transition-normal);
 }
 
-.work-item:nth-child(1) .work-link {
-  color: #34495e;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-
-.work-item:nth-child(1) .work-link:hover {
-  color: #2c3e50;
-}
-
-/* HammerHacks - Darker Pastel Blue gradient */
-.work-item:nth-child(2) {
-  background: linear-gradient(135deg, #b3d9ff 0%, #99ccff 100%);
-  color: #2c3e50;
-  border: none;
-}
-
-.work-item:nth-child(2) h3,
-.work-item:nth-child(2) .work-role,
-.work-item:nth-child(2) p {
-  color: #2c3e50;
-}
-
-.work-item:nth-child(2) .work-link {
-  color: #34495e;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-
-.work-item:nth-child(2) .work-link:hover {
-  color: #2c3e50;
-}
-
-/* Medical Imaging - Lighter Pastel Pink gradient */
-.work-item:nth-child(3) {
-  background: linear-gradient(135deg, #fce4ec 0%, #f8d0e0 100%);
-  color: #2c3e50;
-  border: none;
-}
-
-.work-item:nth-child(3) h3,
-.work-item:nth-child(3) .work-role,
-.work-item:nth-child(3) p {
-  color: #2c3e50;
-}
-
-.work-item:nth-child(3) .work-link {
-  color: #34495e;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-
-.work-item:nth-child(3) .work-link:hover {
-  color: #2c3e50;
-}
-
-/* Stanford - Lighter Pastel Red gradient */
-.work-item:nth-child(4) {
-  background: linear-gradient(135deg, #ffcccc 0%, #ffb3b3 100%);
-  color: #2c3e50;
-  border: none;
-}
-
-.work-item:nth-child(4) h3,
-.work-item:nth-child(4) .work-role,
-.work-item:nth-child(4) p {
-  color: #2c3e50;
-}
-
-.work-item:nth-child(4) .work-link {
-  color: #34495e;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-
-.work-item:nth-child(4) .work-link:hover {
-  color: #2c3e50;
-}
-
-/* Sword Power Tycoon - Lighter Pastel Purple gradient */
-.work-item:nth-child(5) {
-  background: linear-gradient(135deg, #e6d4e6 0%, #dcc8dc 100%);
-  color: #2c3e50;
-  border: none;
-}
-
-.work-item:nth-child(5) h3,
-.work-item:nth-child(5) .work-role,
-.work-item:nth-child(5) p {
-  color: #2c3e50;
-}
-
-.work-item:nth-child(5) .work-link {
-  color: #34495e;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-
-.work-item:nth-child(5) .work-link:hover {
-  color: #2c3e50;
-}
-
-/* WasteBuster - Lighter Pastel Green gradient */
-.work-item:nth-child(6) {
-  background: linear-gradient(135deg, #d4f0d4 0%, #c8e8c8 100%);
-  color: #2c3e50;
-  border: none;
-}
-
-.work-item:nth-child(6) h3,
-.work-item:nth-child(6) .work-role,
-.work-item:nth-child(6) p {
-  color: #2c3e50;
-}
-
-.work-item:nth-child(6) .work-link {
-  color: #34495e;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-
-.work-item:nth-child(6) .work-link:hover {
-  color: #2c3e50;
+.work-item:hover::before {
+  width: 8px;
 }
 
 .work-item h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
   font-size: var(--font-size-lg);
   font-weight: 600;
-  margin-bottom: var(--spacing-xs);
-  color: var(--text-primary);
 }
 
 .work-role {
-  font-size: var(--font-size-sm);
   color: var(--accent-primary);
+  font-size: var(--font-size-sm);
   font-weight: 500;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .work-item p {
   color: var(--text-secondary);
-  margin-bottom: var(--spacing-sm);
   line-height: 1.6;
+  margin-bottom: var(--spacing-md);
 }
 
 .work-link {
-  color: #666;
+  color: var(--accent-primary);
   text-decoration: underline;
-  text-decoration-thickness: 0.5px;
+  text-decoration-thickness: 1px;
   text-underline-offset: 2px;
   font-weight: 500;
   transition: color var(--transition-normal);
 }
 
 .work-link:hover {
-  color: #999;
+  color: var(--accent-secondary);
 }
+
+
 
 .work-links {
   display: flex;
@@ -466,6 +348,7 @@ section {
 .cta-content {
   display: flex;
   justify-content: center;
+  gap: var(--spacing-xs);
 }
 
 .cta-link {
