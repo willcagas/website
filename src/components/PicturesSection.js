@@ -19,7 +19,7 @@ class PicturesSection {
       },
       {
         image: "/assets/pictures/sf-2025.png",
-        caption: "HackClub's Undercity hackathon at GitHub HQ in SF"
+        caption: "Hack Club's Undercity hackathon at GitHub HQ in SF"
       },
       {
         image: "/assets/pictures/loo-park.jpg",

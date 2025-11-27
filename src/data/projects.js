@@ -30,11 +30,11 @@ const projects = [
     featured: true
   },
   {
-    title: "Collaborative DDPM Research in CMU's Xu Lab",
+    title: "DDPM Research in CMU's Xu Lab",
     date: "2024-11-01",
     description: [
-      "Conducted short-term research on DDPMs in <strong>CMU's Xu Lab</strong> within the Computational Biology Department",
-      "Specialized in DDPMs for clinical applications with an emphasis on synthetic data generation and medical image synthesis"
+      "Conducted short-term collaborative research on DDPMs in <strong>CMU's Xu Lab</strong> within the Computational Biology Department",
+      "Specialized in DDPMs for clinical applications, focusing on medical image synthesis"
     ],
     tags: ["Research", "Machine Learning", "DDPMs", "Medical Imaging"],
     liveLink: "https://xulabs.github.io/",
@@ -48,8 +48,8 @@ const projects = [
     date: "2024-03-20",
     description: [
       "Hamilton's first high school hackathon",
-      "Secured <strong>$12,000</strong> in funding with support from <strong>McMaster Engineering</strong>, <strong>City of Hamilton</strong>, <strong>Hack Club</strong>, <strong>Inference Labs</strong>, and more",
-      "Welcomed <strong>140+ participants</strong> from <strong>17 high schools</strong> across the region, resulting in <strong>~50 projects</strong>"
+      "Secured <strong>$12,000</strong> in funding from <strong>McMaster Engineering</strong>, <strong>City of Hamilton</strong>, <strong>Hack Club</strong>, <strong>Inference Labs</strong>, and more",
+      "Resulted in <strong>140+ participants</strong> from <strong>17 high schools</strong> and <strong>~50 projects</strong>"
     ],
     tags: ["Event", "Organizing", "Community"],
     liveLink: "https://hammerhacks2024.wcagas.com",
@@ -62,9 +62,9 @@ const projects = [
     title: "Medical Imaging Complexity and its Effects on GAN Performance",
     date: "2024-10-15",
     description: [
-      "Used Larkin's delentropy to empirically show that datasets with tighter complexity distributions achieved up to <strong>2× lower FID</strong> using only <strong>1,000 training images</strong>, demonstrating how image complexity affects the optimal dataset size for efficient GAN training",
+      "Used Larkin’s delentropy to show that tighter complexity distributions yield <strong>~2× lower FID</strong> with <strong>1,000 images</strong>, linking image complexity to optimal GAN data size",
       "Published and invited to present at GAISynMeD at <strong>ACCV 2024</strong> in <strong>Hanoi, Vietnam</strong>",
-      "Currently at <strong>6 citations</strong> from papers published at top conferences including <strong>ICCV</strong> and <strong>ACM</strong>."
+      "Cited by <strong>6 papers</strong> published at top conferences like <strong>ICCV</strong> and <strong>ACM</strong>"
     ],
     tags: ["Research", "Machine Learning", "Medical Imaging"],
     liveLink: "https://medgans.wcagas.com",
@@ -90,7 +90,7 @@ const projects = [
     date: "2023-08-10",
     description: [
       "Developed sword powers and game mechanics",
-      "<strong>19M+ plays</strong> on Roblox with <strong>36K+ favourites</strong>"
+      "Reached <strong>19M+ plays</strong> on Roblox with <strong>36K+ favourites</strong>"
     ],
     tags: ["Game Development", "Roblox", "Lua"],
     liveLink: "https://www.roblox.com/games/6937615628/Sword-Power-Tycoon",
@@ -99,19 +99,6 @@ const projects = [
     logo: "/assets/logos/roblox-logo.png",
     featured: false
   },
-  {
-    title: "WasteBuster",
-    date: "2023-12-05",
-    description: [
-      "Designed sustainability app  to tackle overconsumption through circular solutions",
-      "Features include DIYs, local events, and a repurpose marketplace"
-    ],
-    tags: ["Mobile App", "Sustainability", "iOS"],
-    liveLink: "https://apps.apple.com/ca/app/wastebuster/id6450317120",
-    repoLink: null,
-    image: null,
-    featured: false
-  }
 ];
 
 export default projects;

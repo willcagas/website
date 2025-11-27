@@ -680,46 +680,43 @@ section {
 /* Mobile */
 @media (max-width: 639px) {
   .navbar-menu {
-    position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background-color: var(--color-bg-primary);
-    border-bottom: 1px solid var(--color-border);
-    flex-direction: column;
-    padding: var(--spacing-lg);
-    gap: var(--spacing-md);
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-normal);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .navbar-menu-active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
+    display: none;
   }
 
   .navbar-toggle {
     display: flex;
-  }
-
-  .navbar-toggle-active .navbar-toggle-icon:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .navbar-toggle-active .navbar-toggle-icon:nth-child(2) {
     opacity: 0;
+    pointer-events: none;
+    cursor: default;
   }
 
-  .navbar-toggle-active .navbar-toggle-icon:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
+  .navbar-toggle-icon {
+    opacity: 0;
   }
 
   .hero-name {
     font-size: var(--font-size-3xl);
+  }
+
+  .hero-headline {
+    font-size: var(--font-size-base);
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    line-height: 1.4;
+    width: 100%;
+  }
+
+  .university-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    flex-wrap: wrap;
+  }
+
+  .university-logo {
+    height: 1em;
+    width: auto;
+    flex-shrink: 0;
   }
 
   .section-title {

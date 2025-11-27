@@ -30,14 +30,14 @@ class Hero {
           icon: "linkedin"
         },
         {
-          name: "X (Twitter)",
-          url: "https://x.com/williamcagas",
-          icon: "twitter"
-        },
-        {
           name: "GitHub",
           url: "https://github.com/willcagas",
           icon: "github"
+        },
+        {
+          name: "X (Twitter)",
+          url: "https://x.com/williamcagas",
+          icon: "twitter"
         },
         {
           name: "Instagram",
