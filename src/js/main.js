@@ -9,6 +9,7 @@ import NavBar from '../components/NavBar.js';
 import Hero from '../components/Hero.js';
 import AboutSection from '../components/AboutSection.js';
 import ProjectsSection from '../components/ProjectsSection.js';
+import PicturesSection from '../components/PicturesSection.js';
 import Footer from '../components/Footer.js';
 
 /**
@@ -30,9 +31,32 @@ class SmoothScroller {
           const targetId = href.substring(1);
           const targetSection = document.getElementById(targetId);
           if (targetSection) {
-            targetSection.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
+            // Dynamically get navbar height (works on all devices/screen sizes)
+            const navbar = document.querySelector('.navbar');
+            const navbarHeight = navbar ? navbar.offsetHeight : 0;
+            
+            // Get the section header - this is what we want to see below the navbar
+            const sectionHeader = targetSection.querySelector('.section-header');
+            const targetElement = sectionHeader || targetSection;
+            
+            // Wait for next frame to ensure layout is calculated
+            requestAnimationFrame(() => {
+              // Get current scroll position (works across browsers)
+              const currentScroll = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+              
+              // Get the target element's position relative to viewport
+              const rect = targetElement.getBoundingClientRect();
+              const elementTop = rect.top;
+              
+              // Calculate target position: current scroll + element position - navbar height
+              // Add offset to account for section spacing/padding to fully hide previous section
+              const offset = 15; // Accounts for section padding and spacing
+              const targetPosition = currentScroll + elementTop - navbarHeight - offset;
+              
+              window.scrollTo({
+                top: Math.max(0, targetPosition),
+                behavior: 'smooth'
+              });
             });
           }
         }
@@ -51,6 +75,7 @@ class App {
       hero: new Hero(),
       about: new AboutSection(),
       projects: new ProjectsSection(),
+      pictures: new PicturesSection(),
       footer: new Footer()
     };
   }
@@ -62,8 +87,10 @@ class App {
     // Initialize component-specific functionality
     this.components.navbar.init();
     
-    // Initialize smooth scrolling
-    new SmoothScroller();
+    // Initialize smooth scrolling after components are rendered
+    setTimeout(() => {
+      new SmoothScroller();
+    }, 100);
   }
 
   renderComponents() {
@@ -91,6 +118,14 @@ class App {
     const projectsRoot = document.getElementById('projects-root');
     if (projectsRoot) {
       projectsRoot.innerHTML = this.components.projects.render();
+    }
+
+    // Render Pictures
+    const picturesRoot = document.getElementById('pictures-root');
+    if (picturesRoot) {
+      picturesRoot.innerHTML = this.components.pictures.render();
+      // Initialize pictures toggle functionality
+      setTimeout(() => this.components.pictures.init(), 0);
     }
 
     // Render Footer

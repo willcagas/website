@@ -10,7 +10,8 @@ class NavBar {
     this.navItems = [
       { label: 'Home', href: '#home' },
       { label: 'About', href: '#about' },
-      { label: 'Projects', href: '#projects' },
+      { label: 'Highlights', href: '#projects' },
+      { label: 'Pictures', href: '#pictures' },
       { label: 'Contact', href: '#contact' }
     ];
   }
@@ -19,7 +20,7 @@ class NavBar {
     return `
       <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="navbar-container">
-          <a href="#home" class="navbar-logo">William Cagas</a>
+          <a href="/" class="navbar-logo" id="navbar-logo">William Cagas</a>
           <ul class="navbar-menu" id="navbar-menu">
             ${this.navItems.map(item => `
               <li class="navbar-item">
@@ -38,6 +39,15 @@ class NavBar {
   }
 
   init() {
+    // Logo click handler - scroll to top without changing URL
+    const logo = document.getElementById('navbar-logo');
+    if (logo) {
+      logo.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
     // Mobile menu toggle
     const toggle = document.getElementById('navbar-toggle');
     const menu = document.getElementById('navbar-menu');

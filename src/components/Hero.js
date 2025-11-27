@@ -10,13 +10,19 @@ class Hero {
     this.data = {
       name: "William Cagas",
       headline: "Software Engineering @ University of Waterloo",
-      tagline: "👋 I'm William, a 18-year-old Hamiltonian passionate about building. I'm currently developing AcneCura, an AI-powered app that recommends personalized acne treatments in minutes. After struggling with acne for six years, I'm creating the solution to eradicate acne entirely.",
-      ctaText: "View Projects",
+      tagline: "👋 I'm William, a 18-year-old Hamiltonian passionate about building AI for good.",
+      ctaText: "View Highlights",
       ctaLink: "#projects",
-      featuredLink: {
-        text: "The Spec",
-        url: "https://www.thespec.com/news/hamilton-region/hamilton-high-schooler-uses-tech-to-solve-problems-from-gaps-in-medical-data-to-teen/article_35dcda17-4b96-5079-90d5-84625c65f254.html"
-      },
+      featuredLinks: [
+        {
+          text: "Global News",
+          url: "https://globalnews.ca/video/11330376/hamilton-teen-develops-app-to-detect-diagnose-acne/"
+        },
+        {
+          text: "The Spec",
+          url: "https://www.thespec.com/news/hamilton-region/hamilton-high-schooler-uses-tech-to-solve-problems-from-gaps-in-medical-data-to-teen/article_35dcda17-4b96-5079-90d5-84625c65f254.html"
+        }
+      ],
       socialLinks: [
         {
           name: "LinkedIn",
@@ -40,7 +46,7 @@ class Hero {
         },
         {
           name: "Email",
-          url: "mailto:williamgabriel.cagas@gmail.com",
+          url: "mailto:wcagas@uwaterloo.ca",
           icon: "email"
         }
       ]
@@ -65,16 +71,26 @@ class Hero {
           <div class="hero-content">
             <div class="hero-header">
               <h1 class="hero-name">${this.data.name}</h1>
-              <p class="hero-headline">${this.data.headline}</p>
+              <p class="hero-headline">
+                Software Engineering @ 
+                <a href="https://uwaterloo.ca/" target="_blank" rel="noopener noreferrer" class="university-link">
+                  University of Waterloo
+                  <img src="/assets/logos/waterloo-logo.png" alt="University of Waterloo" class="university-logo">
+                </a>
+              </p>
             </div>
             
             <p class="hero-tagline">${this.data.tagline}</p>
             
-            ${this.data.featuredLink ? `
+            ${this.data.featuredLinks && this.data.featuredLinks.length > 0 ? `
               <div class="hero-featured">
-                <a href="${this.data.featuredLink.url}" target="_blank" class="hero-featured-link link">
-                  ${this.data.featuredLink.text}
-                </a>
+                ${this.data.featuredLinks.map((link, index) => `
+                  <a href="${link.url}" target="_blank" class="hero-featured-link link" rel="noopener noreferrer">
+                    ${link.text}
+                    ${link.logo ? `<img src="${link.logo}" alt="${link.text}" class="featured-logo">` : ''}
+                  </a>
+                  ${index < this.data.featuredLinks.length - 1 ? '<span class="featured-separator">•</span>' : ''}
+                `).join('')}
               </div>
             ` : ''}
             

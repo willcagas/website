@@ -32,7 +32,7 @@ class Footer {
         },
         {
           name: "Email",
-          url: "mailto:williamgabriel.cagas@gmail.com",
+          url: "mailto:wcagas@uwaterloo.ca",
           icon: "email"
         }
       ],

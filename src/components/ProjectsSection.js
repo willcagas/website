@@ -18,7 +18,7 @@ class ProjectsSection {
       <section id="projects" class="projects-section">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">Highlights</h2>
           </div>
           
           <div class="projects-grid" id="projects-grid">
