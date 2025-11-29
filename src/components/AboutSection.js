@@ -13,7 +13,7 @@ class AboutSection {
         <p>I like to build and research AI that solves real-world problems.</p>
         <p>Currently, I'm focused on developing AcneCura, an AI-powered solution for personalized acne treatment recommendations. My work spans health tech, AI research, education, hackathon organization, game development and more.</p>
         <p>When I'm not coding, I enjoy organizing community events like HammerHacks, teaching programming like through Stanford's Code in Place program, or playing recreational basketball and the piano.</p>
-        <p>I'm also documenting my journey! Check it out <a href="https://www.instagram.com/willcagas.mov" target="_blank" rel="noopener noreferrer">@willcagas.mov</a>.🪿</p>
+        <p>I'm also documenting my journey! Check it out <a href="https://www.instagram.com/willcagas.mov" target="_blank" rel="noopener noreferrer">@willcagas.mov</a>.</p>
       `
     };
   }

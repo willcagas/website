@@ -8,7 +8,7 @@
 class Hero {
   constructor() {
     this.data = {
-      name: "William Cagas 🪿",
+      name: "William Cagas🪿",
       headline: "Software Engineering @ University of Waterloo",
       tagline: "👋 I'm William, a 18-year-old Hamiltonian passionate about building AI for good.",
       ctaText: "View Highlights",
