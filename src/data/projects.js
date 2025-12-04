@@ -89,7 +89,7 @@ const projects = [
     title: "Stanford University's Code in Place",
     date: "2024-04-01",
     description: [
-      "Taught <strong>Stanford's CS106A</strong> course and Python basics to classes of online international students for <a href=\"https://digitalcredential.stanford.edu/check/331E06BB0705E3BB501F97242E27B318FD85DFB285709547D86DBB5D57821610UlZhRHJsUTdRWnZHSjdBamZuQ3Q4RHRMeHM1UWFncU1nK29CMWdvbGVKNnYyLzE4\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"project-featured-link\">CIP '24</a> and <a href=\"https://digitalcredential.stanford.edu/check/9E3635B2E0D3610DF0BA33F4735293F13DC908E01DE02E25BBA1CB0BB26E56E6Zml3Tmg1eTRzSFB5U3l5MWFxRFIrZW8rbm03aXFkMFZ6VDZ6TFFJN2FSVnJLUlA5\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"project-featured-link\">CIP '25</a>"
+      "Taught <strong>Stanford's CS106A</strong> course and Python basics to classes of online international students for <a href=\"https://digitalcredential.stanford.edu/check/9E3635B2E0D3610DF0BA33F4735293F13DC908E01DE02E25BBA1CB0BB26E56E6Zml3Tmg1eTRzSFB5U3l5MWFxRFIrZW8rbm03aXFkMFZ6VDZ6TFFJN2FSVnJLUlA5\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"project-featured-link\">CIP '24</a> and <a href=\"https://digitalcredential.stanford.edu/check/331E06BB0705E3BB501F97242E27B318FD85DFB285709547D86DBB5D57821610UlZhRHJsUTdRWnZHSjdBamZuQ3Q4RHRMeHM1UWFncU1nK29CMWdvbGVK5\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"project-featured-link\">CIP '25</a>"
     ],
     tags: ["Education", "Teaching", "Python"],
     liveLink: "https://codeinplace.stanford.edu",
