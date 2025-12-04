@@ -159,11 +159,41 @@ class App {
 }
 
 // Initialize app when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    new App().init();
-  });
-} else {
-  new App().init();
+try {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        new App().init();
+      } catch (error) {
+        console.error('App initialization error:', error);
+        showErrorFallback();
+      }
+    });
+  } else {
+    try {
+      new App().init();
+    } catch (error) {
+      console.error('App initialization error:', error);
+      showErrorFallback();
+    }
+  }
+} catch (error) {
+  console.error('Critical error:', error);
+  showErrorFallback();
+}
+
+function showErrorFallback() {
+  const main = document.getElementById('main-content');
+  if (main) {
+    main.innerHTML = `
+      <div style="padding: 2rem; text-align: center; color: var(--color-text-primary);">
+        <h1>Error Loading Content</h1>
+        <p>There was an error loading the website. Please try refreshing the page.</p>
+        <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 1rem;">
+          If the problem persists, please check your internet connection or try again later.
+        </p>
+      </div>
+    `;
+  }
 }
 
