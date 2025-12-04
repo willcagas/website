@@ -11,14 +11,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
-      // Prevent flash of wrong theme
+      // Prevent flash of wrong theme - safe for private mode/in-app browsers
       (function() {
+        let theme = 'light';
+        
         try {
-          const storedTheme = localStorage.getItem('theme');
-          const systemTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          const theme = storedTheme || systemTheme;
-          document.documentElement.setAttribute('data-theme', theme);
-        } catch (e) {}
+          if (window.localStorage) {
+            const stored = localStorage.getItem('theme');
+            if (stored === 'light' || stored === 'dark') {
+              theme = stored;
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              theme = 'dark';
+            }
+          } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            theme = 'dark';
+          }
+        } catch (e) {
+          // localStorage not available (private mode / in-app browser)
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            theme = 'dark';
+          }
+        }
+        
+        document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
 </head>

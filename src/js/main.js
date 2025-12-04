@@ -91,13 +91,21 @@ class App {
     this.components.navbar.init();
     
     // Load theme manager dynamically (non-blocking)
+    // Wrap in try-catch to handle private mode/in-app browser issues
     try {
       const { default: ThemeManager } = await import('./theme.js');
-      this.themeManager = new ThemeManager();
-      this.initThemeToggle();
+      try {
+        this.themeManager = new ThemeManager();
+        this.initThemeToggle();
+      } catch (error) {
+        console.warn('ThemeManager initialization failed:', error);
+        // Continue without theme manager - site still works
+        this.themeManager = null;
+      }
     } catch (error) {
-      console.warn('ThemeManager failed to load:', error);
+      console.warn('ThemeManager module failed to load:', error);
       // Continue without theme manager - site still works
+      this.themeManager = null;
     }
     
     // Initialize smooth scrolling after components are rendered
