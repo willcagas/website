@@ -53,6 +53,18 @@
 
     <!-- JavaScript Modules -->
     <script type="module" src="src/js/main.js"></script>
+    <script>
+      // Diagnostic: Check if modules loaded
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const main = document.getElementById('main-content');
+          if (main && main.innerHTML.trim() === '') {
+            console.error('Modules may have failed to load - main-content is empty');
+            main.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--color-text-primary);"><h1>Content Not Loading</h1><p>JavaScript modules may have failed to load. Check browser console for errors.</p></div>';
+          }
+        }, 2000);
+      });
+    </script>
     <noscript>
       <div style="padding: 2rem; text-align: center;">
         <h1>JavaScript Required</h1>

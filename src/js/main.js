@@ -12,7 +12,6 @@ import ProjectsSection from '../components/ProjectsSection.js';
 import GallerySection from '../components/GallerySection.js';
 import VideosSection from '../components/VideosSection.js';
 import Footer from '../components/Footer.js';
-import ThemeManager from './theme.js';
 
 /**
  * Smooth Scrolling Handler
@@ -72,9 +71,6 @@ class SmoothScroller {
  */
 class App {
   constructor() {
-    // Initialize theme manager first (before rendering)
-    this.themeManager = new ThemeManager();
-    
     this.components = {
       navbar: new NavBar(),
       hero: new Hero(),
@@ -84,15 +80,25 @@ class App {
       videos: new VideosSection(),
       footer: new Footer()
     };
+    this.themeManager = null;
   }
 
-  init() {
-    // Render all components
+  async init() {
+    // Render all components first (critical path)
     this.renderComponents();
     
     // Initialize component-specific functionality
     this.components.navbar.init();
-    this.initThemeToggle();
+    
+    // Load theme manager dynamically (non-blocking)
+    try {
+      const { default: ThemeManager } = await import('./theme.js');
+      this.themeManager = new ThemeManager();
+      this.initThemeToggle();
+    } catch (error) {
+      console.warn('ThemeManager failed to load:', error);
+      // Continue without theme manager - site still works
+    }
     
     // Initialize smooth scrolling after components are rendered
     setTimeout(() => {
@@ -102,7 +108,7 @@ class App {
 
   initThemeToggle() {
     const toggleBtn = document.getElementById('theme-toggle');
-    if (toggleBtn) {
+    if (toggleBtn && this.themeManager) {
       toggleBtn.addEventListener('click', () => {
         this.themeManager.toggleTheme();
       });
