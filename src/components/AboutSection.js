@@ -14,7 +14,7 @@ class AboutSection {
         <p>My work spans across health tech, applied AI research, hackathon organizing, game development, education, and more.</p>
         <p>When I'm not tinkering with tech, I enjoy playing rec basketball, listening to music, and playing the piano.</p>
         <p>I'm also documenting my journey. Check it out <a href="https://www.instagram.com/willcagas.mov" target="_blank" rel="noopener noreferrer" class="link">@willcagas.mov</a>.</p>
-        <p>If you're interested in tech, feel free to reach out about anything!</p>
+        <p>If you're interested in tech, feel free to reach out!</p>
       `
     };
   }

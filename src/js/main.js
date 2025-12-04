@@ -9,8 +9,7 @@ import NavBar from '../components/NavBar.js';
 import Hero from '../components/Hero.js';
 import AboutSection from '../components/AboutSection.js';
 import ProjectsSection from '../components/ProjectsSection.js';
-import GallerySection from '../components/GallerySection.js';
-import VideosSection from '../components/VideosSection.js';
+import ArchiveSection from '../components/ArchiveSection.js';
 import Footer from '../components/Footer.js';
 import ThemeManager from './theme.js';
 
@@ -80,8 +79,7 @@ class App {
       hero: new Hero(),
       about: new AboutSection(),
       projects: new ProjectsSection(),
-      gallery: new GallerySection(),
-      videos: new VideosSection(),
+      archive: new ArchiveSection(),
       footer: new Footer()
     };
   }
@@ -136,18 +134,12 @@ class App {
       projectsRoot.innerHTML = this.components.projects.render();
     }
 
-    // Render Gallery
-    const galleryRoot = document.getElementById('gallery-root');
-    if (galleryRoot) {
-      galleryRoot.innerHTML = this.components.gallery.render();
-      // Initialize gallery toggle functionality
-      setTimeout(() => this.components.gallery.init(), 0);
-    }
-
-    // Render Videos
-    const videosRoot = document.getElementById('videos-root');
-    if (videosRoot) {
-      videosRoot.innerHTML = this.components.videos.render();
+    // Render Archive
+    const archiveRoot = document.getElementById('archive-root');
+    if (archiveRoot) {
+      archiveRoot.innerHTML = this.components.archive.render();
+      // Initialize archive carousel functionality
+      setTimeout(() => this.components.archive.init(), 0);
     }
 
     // Render Footer

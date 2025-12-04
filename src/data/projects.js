@@ -83,6 +83,7 @@ const projects = [
     liveLink: "https://medgans.wcagas.com",
     repoLink: null,
     image: null,
+    logo: "/assets/logos/medgans.png",
     featured: true
   },
   {
@@ -95,7 +96,7 @@ const projects = [
     liveLink: "https://codeinplace.stanford.edu",
     repoLink: null,
     image: null,
-    logo: "/assets/logos/stanford-cip.png",
+    logo: "/assets/logos/stanford-logo.jpg",
     featured: false
   },
   {

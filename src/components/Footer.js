@@ -21,14 +21,14 @@ class Footer {
           icon: "github"
         },
         {
-          name: "X (Twitter)",
-          url: "https://x.com/williamcagas",
-          icon: "twitter"
-        },
-        {
           name: "Google Scholar",
           url: "https://scholar.google.com/citations?user=IMaV4_kAAAAJ&hl",
           icon: "scholar"
+        },
+        {
+          name: "X (Twitter)",
+          url: "https://x.com/williamcagas",
+          icon: "twitter"
         },
         {
           name: "Instagram",
