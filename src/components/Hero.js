@@ -10,19 +10,9 @@ class Hero {
     this.data = {
       name: "William Cagas🪿",
       headline: "Software Engineering @ University of Waterloo",
-      tagline: "👋 I'm William, a 18-year-old Hamiltonian passionate about building AI for good.",
+      tagline: "✌️ I'm Will, an 18-year-old Hamiltonian passionate about building AI for good.",
       ctaText: "View Highlights",
       ctaLink: "#projects",
-      featuredLinks: [
-        {
-          text: "Global News",
-          url: "https://globalnews.ca/video/11330376/hamilton-teen-develops-app-to-detect-diagnose-acne/"
-        },
-        {
-          text: "The Spec",
-          url: "https://www.thespec.com/news/hamilton-region/hamilton-high-schooler-uses-tech-to-solve-problems-from-gaps-in-medical-data-to-teen/article_35dcda17-4b96-5079-90d5-84625c65f254.html"
-        }
-      ],
       socialLinks: [
         {
           name: "LinkedIn",
@@ -38,6 +28,11 @@ class Hero {
           name: "X (Twitter)",
           url: "https://x.com/williamcagas",
           icon: "twitter"
+        },
+        {
+          name: "Google Scholar",
+          url: "https://scholar.google.com/citations?user=IMaV4_kAAAAJ&hl",
+          icon: "scholar"
         },
         {
           name: "Instagram",
@@ -59,7 +54,8 @@ class Hero {
       twitter: `<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />`,
       github: `<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />`,
       instagram: `<rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />`,
-      email: `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" />`
+      email: `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" />`,
+      scholar: `<path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />`
     };
     return icons[iconName] || '';
   }
@@ -81,18 +77,6 @@ class Hero {
             </div>
             
             <p class="hero-tagline">${this.data.tagline}</p>
-            
-            ${this.data.featuredLinks && this.data.featuredLinks.length > 0 ? `
-              <div class="hero-featured">
-                ${this.data.featuredLinks.map((link, index) => `
-                  <a href="${link.url}" target="_blank" class="hero-featured-link link" rel="noopener noreferrer">
-                    ${link.text}
-                    ${link.logo ? `<img src="${link.logo}" alt="${link.text}" class="featured-logo">` : ''}
-                  </a>
-                  ${index < this.data.featuredLinks.length - 1 ? '<span class="featured-separator">•</span>' : ''}
-                `).join('')}
-              </div>
-            ` : ''}
             
             <div class="hero-social">
               ${this.data.socialLinks.map(link => `

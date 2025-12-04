@@ -9,8 +9,10 @@ import NavBar from '../components/NavBar.js';
 import Hero from '../components/Hero.js';
 import AboutSection from '../components/AboutSection.js';
 import ProjectsSection from '../components/ProjectsSection.js';
-import PicturesSection from '../components/PicturesSection.js';
+import GallerySection from '../components/GallerySection.js';
+import VideosSection from '../components/VideosSection.js';
 import Footer from '../components/Footer.js';
+import ThemeManager from './theme.js';
 
 /**
  * Smooth Scrolling Handler
@@ -70,12 +72,16 @@ class SmoothScroller {
  */
 class App {
   constructor() {
+    // Initialize theme manager first (before rendering)
+    this.themeManager = new ThemeManager();
+    
     this.components = {
       navbar: new NavBar(),
       hero: new Hero(),
       about: new AboutSection(),
       projects: new ProjectsSection(),
-      pictures: new PicturesSection(),
+      gallery: new GallerySection(),
+      videos: new VideosSection(),
       footer: new Footer()
     };
   }
@@ -86,11 +92,21 @@ class App {
     
     // Initialize component-specific functionality
     this.components.navbar.init();
+    this.initThemeToggle();
     
     // Initialize smooth scrolling after components are rendered
     setTimeout(() => {
       new SmoothScroller();
     }, 100);
+  }
+
+  initThemeToggle() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        this.themeManager.toggleTheme();
+      });
+    }
   }
 
   renderComponents() {
@@ -120,12 +136,18 @@ class App {
       projectsRoot.innerHTML = this.components.projects.render();
     }
 
-    // Render Pictures
-    const picturesRoot = document.getElementById('pictures-root');
-    if (picturesRoot) {
-      picturesRoot.innerHTML = this.components.pictures.render();
-      // Initialize pictures toggle functionality
-      setTimeout(() => this.components.pictures.init(), 0);
+    // Render Gallery
+    const galleryRoot = document.getElementById('gallery-root');
+    if (galleryRoot) {
+      galleryRoot.innerHTML = this.components.gallery.render();
+      // Initialize gallery toggle functionality
+      setTimeout(() => this.components.gallery.init(), 0);
+    }
+
+    // Render Videos
+    const videosRoot = document.getElementById('videos-root');
+    if (videosRoot) {
+      videosRoot.innerHTML = this.components.videos.render();
     }
 
     // Render Footer

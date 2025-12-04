@@ -10,6 +10,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+      // Prevent flash of wrong theme
+      (function() {
+        try {
+          const storedTheme = localStorage.getItem('theme');
+          const systemTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          const theme = storedTheme || systemTheme;
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
 </head>
 
 <body>
@@ -30,8 +41,11 @@
         <!-- Highlights Section -->
         <div id="projects-root"></div>
 
-        <!-- Pictures Section -->
-        <div id="pictures-root"></div>
+        <!-- Gallery Section -->
+        <div id="gallery-root"></div>
+
+        <!-- Videos Section -->
+        <div id="videos-root"></div>
 
         <!-- Footer -->
         <div id="footer-root"></div>
