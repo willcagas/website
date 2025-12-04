@@ -12,6 +12,7 @@ import ProjectsSection from '../components/ProjectsSection.js';
 import GallerySection from '../components/GallerySection.js';
 import VideosSection from '../components/VideosSection.js';
 import Footer from '../components/Footer.js';
+import ThemeManager from './theme.js';
 
 /**
  * Smooth Scrolling Handler
@@ -71,6 +72,9 @@ class SmoothScroller {
  */
 class App {
   constructor() {
+    // Initialize theme manager first (before rendering)
+    this.themeManager = new ThemeManager();
+    
     this.components = {
       navbar: new NavBar(),
       hero: new Hero(),
@@ -80,33 +84,15 @@ class App {
       videos: new VideosSection(),
       footer: new Footer()
     };
-    this.themeManager = null;
   }
 
-  async init() {
-    // Render all components first (critical path)
+  init() {
+    // Render all components
     this.renderComponents();
     
     // Initialize component-specific functionality
     this.components.navbar.init();
-    
-    // Load theme manager dynamically (non-blocking)
-    // Wrap in try-catch to handle private mode/in-app browser issues
-    try {
-      const { default: ThemeManager } = await import('./theme.js');
-      try {
-        this.themeManager = new ThemeManager();
-        this.initThemeToggle();
-      } catch (error) {
-        console.warn('ThemeManager initialization failed:', error);
-        // Continue without theme manager - site still works
-        this.themeManager = null;
-      }
-    } catch (error) {
-      console.warn('ThemeManager module failed to load:', error);
-      // Continue without theme manager - site still works
-      this.themeManager = null;
-    }
+    this.initThemeToggle();
     
     // Initialize smooth scrolling after components are rendered
     setTimeout(() => {
@@ -116,7 +102,7 @@ class App {
 
   initThemeToggle() {
     const toggleBtn = document.getElementById('theme-toggle');
-    if (toggleBtn && this.themeManager) {
+    if (toggleBtn) {
       toggleBtn.addEventListener('click', () => {
         this.themeManager.toggleTheme();
       });
@@ -173,41 +159,11 @@ class App {
 }
 
 // Initialize app when DOM is ready
-try {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      try {
-        new App().init();
-      } catch (error) {
-        console.error('App initialization error:', error);
-        showErrorFallback();
-      }
-    });
-  } else {
-    try {
-      new App().init();
-    } catch (error) {
-      console.error('App initialization error:', error);
-      showErrorFallback();
-    }
-  }
-} catch (error) {
-  console.error('Critical error:', error);
-  showErrorFallback();
-}
-
-function showErrorFallback() {
-  const main = document.getElementById('main-content');
-  if (main) {
-    main.innerHTML = `
-      <div style="padding: 2rem; text-align: center; color: var(--color-text-primary);">
-        <h1>Error Loading Content</h1>
-        <p>There was an error loading the website. Please try refreshing the page.</p>
-        <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 1rem;">
-          If the problem persists, please check your internet connection or try again later.
-        </p>
-      </div>
-    `;
-  }
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    new App().init();
+  });
+} else {
+  new App().init();
 }
 

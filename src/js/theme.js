@@ -18,26 +18,17 @@ class ThemeManager {
 
   getStoredTheme() {
     try {
-      if (!window.localStorage) return null;
-      const stored = localStorage.getItem('theme');
-      // Validate stored value
-      if (stored === 'light' || stored === 'dark') {
-        return stored;
-      }
-      return null;
+      return localStorage.getItem('theme');
     } catch (e) {
-      // localStorage not available (private mode / in-app browser)
       return null;
     }
   }
 
   setStoredTheme(theme) {
     try {
-      if (!window.localStorage) return;
       localStorage.setItem('theme', theme);
     } catch (e) {
-      // Ignore - just don't persist in private mode/in-app browsers
-      // Don't log warnings as this is expected behavior
+      console.warn('Could not save theme preference');
     }
   }
 
@@ -62,31 +53,18 @@ class ThemeManager {
   }
 
   init() {
-    try {
-      // Set initial theme
-      this.setTheme(this.theme);
+    // Set initial theme
+    this.setTheme(this.theme);
 
-      // Listen for system theme changes
-      if (window.matchMedia) {
-        try {
-          const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-          mediaQuery.addEventListener('change', (e) => {
-            try {
-              // Only update if user hasn't set a preference
-              if (!this.getStoredTheme()) {
-                this.setTheme(e.matches ? 'dark' : 'light');
-              }
-            } catch (error) {
-              // Ignore theme change errors
-            }
-          });
-        } catch (error) {
-          // Ignore matchMedia errors
+    // Listen for system theme changes
+    if (window.matchMedia) {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      mediaQuery.addEventListener('change', (e) => {
+        // Only update if user hasn't set a preference
+        if (!this.getStoredTheme()) {
+          this.setTheme(e.matches ? 'dark' : 'light');
         }
-      }
-    } catch (error) {
-      // If theme initialization fails, just use the theme we determined
-      document.documentElement.setAttribute('data-theme', this.theme);
+      });
     }
   }
 }

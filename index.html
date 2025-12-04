@@ -11,29 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
-      // Prevent flash of wrong theme - safe for private mode/in-app browsers
+      // Prevent flash of wrong theme
       (function() {
-        let theme = 'light';
-        
         try {
-          if (window.localStorage) {
-            const stored = localStorage.getItem('theme');
-            if (stored === 'light' || stored === 'dark') {
-              theme = stored;
-            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              theme = 'dark';
-            }
-          } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            theme = 'dark';
-          }
-        } catch (e) {
-          // localStorage not available (private mode / in-app browser)
-          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            theme = 'dark';
-          }
-        }
-        
-        document.documentElement.setAttribute('data-theme', theme);
+          const storedTheme = localStorage.getItem('theme');
+          const systemTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          const theme = storedTheme || systemTheme;
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
       })();
     </script>
 </head>
@@ -68,24 +53,6 @@
 
     <!-- JavaScript Modules -->
     <script type="module" src="src/js/main.js"></script>
-    <script>
-      // Diagnostic: Check if modules loaded
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          const main = document.getElementById('main-content');
-          if (main && main.innerHTML.trim() === '') {
-            console.error('Modules may have failed to load - main-content is empty');
-            main.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--color-text-primary);"><h1>Content Not Loading</h1><p>JavaScript modules may have failed to load. Check browser console for errors.</p></div>';
-          }
-        }, 2000);
-      });
-    </script>
-    <noscript>
-      <div style="padding: 2rem; text-align: center;">
-        <h1>JavaScript Required</h1>
-        <p>This website requires JavaScript to function. Please enable JavaScript in your browser settings.</p>
-      </div>
-    </noscript>
 </body>
 
 </html>
