@@ -21,11 +21,11 @@ class ProjectCard {
 
   boldNumbers(text) {
     // Bold all numbers (including decimals, percentages, multipliers, etc.)
-    // Split by existing strong tags to avoid double-wrapping
-    const parts = text.split(/(<strong>.*?<\/strong>)/g);
+    // Split by existing strong tags and HTML tags to avoid wrapping content inside tags
+    const parts = text.split(/(<strong>.*?<\/strong>|<[^>]+>)/g);
     return parts.map(part => {
-      // Skip parts that are already in strong tags
-      if (part.startsWith('<strong>')) {
+      // Skip parts that are HTML tags or already in strong tags
+      if (part.startsWith('<strong>') || part.startsWith('<')) {
         return part;
       }
       // Bold numbers in other parts
