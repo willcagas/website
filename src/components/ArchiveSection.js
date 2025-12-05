@@ -27,7 +27,7 @@ class ArchiveSection {
       },
       {
         image: "/assets/pictures/dev-the-future.JPG",
-        caption: "Panelist at the annual Apple x DevTheFuture conference",
+        caption: "Panelist at the semiannual Apple x DevTheFuture conference",
         objectPosition: "70% 40%"
       },
       {
@@ -87,12 +87,12 @@ class ArchiveSection {
               </button>
               <div class="carousel-wrapper">
                 <div class="carousel-track" id="carousel-track">
-                  ${this.photos.map((photo, index) => `
-                    <figure class="carousel-item ${index === 0 ? 'carousel-item-active' : ''}">
-                      <img src="${photo.image}" alt="${photo.caption}" class="carousel-image" loading="lazy" style="${photo.objectPosition ? `object-position: ${photo.objectPosition} !important;` : ''}">
-                      <figcaption class="carousel-caption">${photo.caption}</figcaption>
-                    </figure>
-                  `).join('')}
+                   ${this.photos.map((photo, index) => `
+                     <figure class="carousel-item ${index === 0 ? 'carousel-item-active' : ''}">
+                       <img src="${photo.image}" alt="" class="carousel-image" loading="${index < 4 ? 'eager' : 'lazy'}" style="${photo.objectPosition ? `object-position: ${photo.objectPosition} !important;` : ''}" onload="this.classList.add('loaded');" onerror="this.classList.add('loaded');">
+                       <figcaption class="carousel-caption">${photo.caption}</figcaption>
+                     </figure>
+                   `).join('')}
                 </div>
               </div>
               <button class="carousel-btn carousel-btn-next" id="carousel-next" aria-label="Next photo">
@@ -291,6 +291,17 @@ class ArchiveSection {
         }
       }
     });
+
+    // Preload all images for smooth carousel navigation
+    const preloadImages = () => {
+      this.photos.forEach((photo) => {
+        const img = new Image();
+        img.src = photo.image;
+      });
+    };
+
+    // Preload images after initial render
+    preloadImages();
 
     // Initialize
     updateCarousel();
