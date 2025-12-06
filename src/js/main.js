@@ -10,6 +10,7 @@ import Hero from '../components/Hero.js';
 import AboutSection from '../components/AboutSection.js';
 import ProjectsSection from '../components/ProjectsSection.js';
 import ArchiveSection from '../components/ArchiveSection.js';
+import PersonalSection from '../components/PersonalSection.js';
 import Footer from '../components/Footer.js';
 import ThemeManager from './theme.js';
 
@@ -74,14 +75,15 @@ class App {
     // Initialize theme manager first (before rendering)
     this.themeManager = new ThemeManager();
     
-    this.components = {
-      navbar: new NavBar(),
-      hero: new Hero(),
-      about: new AboutSection(),
-      projects: new ProjectsSection(),
-      archive: new ArchiveSection(),
-      footer: new Footer()
-    };
+      this.components = {
+        navbar: new NavBar(),
+        hero: new Hero(),
+        about: new AboutSection(),
+        projects: new ProjectsSection(),
+        archive: new ArchiveSection(),
+        personal: new PersonalSection(),
+        footer: new Footer()
+      };
   }
 
   init() {
@@ -140,6 +142,12 @@ class App {
       archiveRoot.innerHTML = this.components.archive.render();
       // Initialize archive carousel functionality
       setTimeout(() => this.components.archive.init(), 0);
+    }
+
+    // Render Personal
+    const personalRoot = document.getElementById('personal-root');
+    if (personalRoot) {
+      personalRoot.innerHTML = this.components.personal.render();
     }
 
     // Render Footer
